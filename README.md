@@ -10,9 +10,9 @@ fn main() int {
     // this is a comment
     println(“Hello world!”)
     return 0
-}```
+}
 
-```js
+
 // a more “advanced” example might be:
 
 fn read(prompt) string {
