@@ -19,4 +19,4 @@ fn read(prompt) string {
     printf(“%s”, prompt)
     inp := readln()
     return inp
-}```
+}
