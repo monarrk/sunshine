@@ -3,7 +3,7 @@ A low level, compiled language built to be small and fast that will probably nev
 
 ### Syntax?
 What can it do right now?
-Basically, nothing. At the moment it can only print addition, subtraction, and multiplication. You can do this with
+Basically, nothing. At the moment it can only print math. You can do this with
 ```go
 println( {{ equation }} );
 ```
