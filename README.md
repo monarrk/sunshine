@@ -19,7 +19,8 @@ println( 1 != 1 ); {{ results in 0 }}
 ```
 
 ### Compile
-**COMPILING HAS BEEN DONE ON LINUX MINT TESSA. ANY OTHER OPERATING SYSTEMS MIGHT HAVE FAULTY RESULTS**
+**COMPILING HAS BEEN TESTED ON LINUX MINT TESSA. ANY OTHER OPERATING SYSTEMS MIGHT HAVE FAULTY RESULTS**
+
 You also need the following dependancies installed to compile:
 1. llvm (for llc)
 2. rply
