@@ -7,7 +7,7 @@ class Parser():
         self.pg = ParserGenerator(
             # A list of all token names accepted by the parser.
             ['NUMBER', 'PRINTLN', 'OPEN_PAREN', 'CLOSE_PAREN',
-             'SEMI_COLON', 'SUM', 'SUB', 'MULTIPLY']
+             'SEMI_COLON', 'SUM', 'SUB', 'MULTIPLY', 'DIVIDE']
         )
         self.module = module
         self.builder = builder
@@ -21,6 +21,7 @@ class Parser():
         @self.pg.production('expression : expression SUM expression')
         @self.pg.production('expression : expression SUB expression')
         @self.pg.production('expression : expression MULTIPLY expression')
+        @self.pg.production('expression : expression DIVIDE expression')
 
         def expression(p):
             left = p[0]

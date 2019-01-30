@@ -36,6 +36,11 @@ class Multiply(BinaryOp):
         i = self.builder.mul(self.left.eval(), self.right.eval())
         return i
 
+class Divide(BinaryOp):
+    def eval(self):
+        i = self.builder.udiv(self.left.eval(), self.right.eval())
+        return i
+
 class Println():
     def __init__(self, builder, module, printf, value):
         self.builder = builder
