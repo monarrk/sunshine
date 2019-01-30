@@ -11,7 +11,6 @@ class Number():
         i = ir.Constant(ir.IntType(8), int(self.value))
         return i
 
-
 class BinaryOp():
     def __init__(self, builder, module, left, right):
         self.builder = builder
@@ -41,6 +40,16 @@ class Divide(BinaryOp):
         i = self.builder.udiv(self.left.eval(), self.right.eval())
         return i
 
+class Equals(BinaryOp):
+    def eval(self):
+        i = self.builder.icmp_unsigned("==", self.left.eval(), self.right.eval())
+        return i
+
+class Nequals(BinaryOp):
+    def eval(self):
+        i = self.builder.icmp_unsigned("!=", self.left.eval(), self.right.eval())
+        return i
+
 class Println():
     def __init__(self, builder, module, printf, value):
         self.builder = builder
@@ -64,3 +73,8 @@ class Println():
 
         # Call Print Function
         self.builder.call(self.printf, [fmt_arg, value])
+
+class Program():
+    def __init__(self, builder, module):
+        self.builder = builder
+        self.module = module

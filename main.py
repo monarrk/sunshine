@@ -2,12 +2,15 @@ from lexer import Lexer
 from parser import Parser
 from codegen import CodeGen
 import argparse
+import subprocess
 
 parser = argparse.ArgumentParser()
 parser.add_argument("flname")
+parser.add_argument("export")
 args = parser.parse_args()
 
 fname = f"./{args.flname}"
+export = f"./{args.export}"
 
 with open(fname) as f:
     text_input = f.read()
@@ -29,5 +32,10 @@ parser.parse(tokens).eval()
 codegen.create_ir()
 codegen.save_ir(".output.ll")
 
-print("\nDone!\nRun\tllc -filetype=obj .output.ll\tto build")
-print(f"Run\tgcc -no-pie .output.o -o output\tto compile")
+bashCommand = "llc -filetype=obj .output.ll"
+process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
+output, error = process.communicate()
+
+bashCommand = f"gcc -no-pie .output.o -o {export}"
+process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
+output, error = process.communicate()

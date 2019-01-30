@@ -6,7 +6,7 @@ class Lexer():
         self.lexer = LexerGenerator()
 
     def _add_tokens(self):
-        # Print
+        # Println
         self.lexer.add('PRINTLN', r'println')
 
         # Parenthesis
@@ -21,6 +21,8 @@ class Lexer():
         self.lexer.add('SUB', r'\-')
         self.lexer.add('MULTIPLY', r'\*')
         self.lexer.add('DIVIDE', r'\/')
+        self.lexer.add('EQUALTO', r'\==')
+        self.lexer.add('NEQUALTO', r'\!=')
 
         # Number
         self.lexer.add('NUMBER', r'\d+')
@@ -28,6 +30,11 @@ class Lexer():
         # Brackets
         self.lexer.add("OPEN_BRAC", r'\{')
         self.lexer.add("CLOSE_BRAC", r'\}')
+
+        # Strings
+
+        # End of line
+        self.lexer.add("ENDLN", r'\\n')
 
         # Ignore spaces
         self.lexer.ignore('\s+')
