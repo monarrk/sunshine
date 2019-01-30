@@ -1,4 +1,4 @@
-from rply import ParserGenerator
+from rply import *
 from ast import *
 
 
@@ -6,7 +6,7 @@ class Parser():
     def __init__(self, module, builder, printf):
         self.pg = ParserGenerator(
             # A list of all token names accepted by the parser.
-            ['NUMBER', 'PRINTLN', 'OPEN_PAREN', 'CLOSE_PAREN',
+            ['MAIN_FUNC', 'OPEN_BRAC', 'CLOSE_BRAC', 'NUMBER', 'PRINTLN', 'OPEN_PAREN', 'CLOSE_PAREN',
              'SEMI_COLON', 'SUM', 'SUB', 'MULTIPLY', 'DIVIDE', 'EQUALTO', 'NEQUALTO']
         )
         self.module = module
@@ -14,14 +14,9 @@ class Parser():
         self.printf = printf
 
     def parse(self):
-        @self.pg.production('program : PRINTLN OPEN_PAREN expression CLOSE_PAREN SEMI_COLON')
-        @self.pg.production('program : program program')
+        @self.pg.production('program : MAIN_FUNC OPEN_PAREN CLOSE_PAREN OPEN_BRAC PRINTLN OPEN_PAREN expression CLOSE_PAREN SEMI_COLON CLOSE_BRAC')
         def program(p):
-            line_count = 0
-            for i in p:
-                if p == "SEMI_COLON":
-                    line_count = line_count + 1
-            return Println(self.builder, self.module, self.printf, p[2 + (line_count * 4)])
+            return Println(self.builder, self.module, self.printf, p[6])
 
         @self.pg.production('expression : expression SUM expression')
         @self.pg.production('expression : expression SUB expression')

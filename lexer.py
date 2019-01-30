@@ -6,6 +6,9 @@ class Lexer():
         self.lexer = LexerGenerator()
 
     def _add_tokens(self):
+        # Main
+        self.lexer.add("MAIN_FUNC", r'fn main')
+
         # Println
         self.lexer.add('PRINTLN', r'println')
 
