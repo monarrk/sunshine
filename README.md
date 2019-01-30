@@ -12,14 +12,19 @@ println( {{ equation }} );
 There are currently a __lot__ of steps to compile, though soon that will change.
 
 Part 1:
+
     go to the directory
+    
     run `python3 main.py test.sun`
     
 Part 2:
+
     run `llc -filetype=obj output.ll`
     
 Part 3:
+
     run `gcc -no-pie output.o -o output`
     
 Part 4:
+
     run `./output`
