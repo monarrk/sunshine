@@ -10,6 +10,10 @@ println( {{ equation }} );
 
 ### Compile
 There are currently a __lot__ of steps to compile, though soon that will change.
+You also need the following dependancies installed:
+1. llvm (for llc)
+2. rply
+3. gcc
 
 Part 1:
 
