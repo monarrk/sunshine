@@ -20,8 +20,10 @@ What can it do right now?
 Basically, nothing. At the moment it can do two things.
 
 The first thing it can do is print math. You can do this with
-```go
+```rust
+fn main() {
 println( {{ equation }} );
+}
 ```
 
 The second thing it can do is print `==` comparisons and `!=` comparisons. This looks like
