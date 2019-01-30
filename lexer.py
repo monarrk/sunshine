@@ -20,7 +20,7 @@ class Lexer():
         self.lexer.add('SUM', r'\+')
         self.lexer.add('SUB', r'\-')
         self.lexer.add('MULTIPLY', r'\*')
-        self.lexer.add('DIVIDE', r'\/')
+        #self.lexer.add('DIVIDE', r'\/')
 
         # Number
         self.lexer.add('NUMBER', r'\d+')

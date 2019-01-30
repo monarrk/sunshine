@@ -27,7 +27,7 @@ parser = pg.get_parser()
 parser.parse(tokens).eval()
 
 codegen.create_ir()
-codegen.save_ir("output.ll")
+codegen.save_ir(".output.ll")
 
-print("\nDone! Run\tllc -filetype=obj output.ll\tto build")
-print(f"Run\tgcc -no-pie output.o -o output\tto compile")
+print("\nDone! Run\tllc -filetype=obj .output.ll\tto build")
+print(f"Run\tgcc -no-pie .output.o -o output\tto compile")
