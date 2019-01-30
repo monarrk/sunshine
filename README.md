@@ -2,21 +2,24 @@
 A low level, compiled language built to be small and fast that will probably never be finished.
 
 ### Syntax?
-Here’s the basic idea:
-```js
-// hello world
+What can it do right now?
+Basically, nothing. At the moment it can only print addition and subtraction. You can do this with
+```go
+println( {{ equation }} );
+```
 
-fn main() int {
-    // this is a comment
-    println(“Hello world!”)
-    return 0
-}
+### Compile
+There are currently a __lot__ of steps to compile, though soon that will change.
 
-
-// a more “advanced” example might be:
-
-fn read(prompt) string {
-    printf(“%s”, prompt)
-    inp := readln()
-    return inp
-}
+Part 1:
+    go to the directory
+    run `python3 main.py test.sun`
+    
+Part 2:
+    run `llc -filetype=obj output.ll`
+    
+Part 3:
+    run `gcc -no-pie output.o -o output`
+    
+Part 4:
+    run `./output`
